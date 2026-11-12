@@ -22,7 +22,9 @@ OUT = os.environ.get("ENTRY_PATH", "/output/entry.txt")
 
 
 def main():
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    out_dir = os.path.dirname(OUT)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
     with open(OUT, "w", encoding="utf-8", newline="\n") as f:
         f.write(SUMMARY)
 
